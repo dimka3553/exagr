@@ -49,7 +49,11 @@
             @foreach($exchanges as $exchange)
                 <div class="flex items-center h-[60px] border-[#dddddd] border-[1px] my-4 px-4 rounded-[10px] justify-between exchange" rate="{{$exchange->assets->find($assetTwo->id)->assetPrices->where('exchange_id', $exchange->id)->where('asset_id', $assetTwo->id)->first()->price / $exchange->assets->find($assetOne->id)->assetPrices->where('exchange_id', $exchange->id)->where('asset_id', $assetOne->id)->first()->price}}">
                     <div class="flex items-center gap-4">
-                        <div class="w-10 h-10 bg-[#{{substr(hash('ripemd160', $exchange->id),2,6)}}] rounded-full min-w-[40px] min-h-10"></div>
+                        @if($exchange->logo != null)
+                            <img src="{{$exchange->logo}}" class="w-10 h-10 min-w-[40px] min-h-10 rounded-full" />
+                        @else
+                            <div class="w-10 h-10 bg-[#{{substr(hash('ripemd160', $exchange->id),2,6)}}] rounded-full min-w-[40px] min-h-10"></div>
+                        @endif
                         <p>{{$exchange->name}}</p>
                     </div>
                     <div class="flex items-center gap-4">

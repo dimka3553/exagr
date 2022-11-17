@@ -29,11 +29,19 @@
                 @foreach($assetType->assets as $asset)
                     <div class="flex">
                         <div class="cursor-pointer w-[50%] h-10 flex items-center px-4 gap-4 border-b-[1px] border-[#dddddd] hover:bg-slate-200 transition-[0.2s] border-r-[1px] text-[14px] assetl hover" dbid="{{$asset->id}}">
-                            <div class="w-5 h-5 bg-[#{{substr(hash('ripemd160', $asset->id),0,6)}}] rounded-full min-w-[20px] min-h-5"></div>
+                            @if($asset->logo != null)
+                                <img class="w-5 h-5 min-w-5 min-h-5 rounded-full" src="{{ $asset->logo }}">
+                            @else
+                                <div class="w-5 h-5 bg-[#{{substr(hash('ripemd160', $asset->id),0,6)}}] rounded-full min-w-[20px] min-h-5"></div>
+                            @endif
                             <div class="truncate ">{{$asset->name}}({{$asset->symbol}})</div>
                         </div>
                         <div class="cursor-pointer w-[50%] h-10 flex items-center px-4 gap-4 truncate border-b-[1px] border-[#dddddd] hover:bg-slate-200 transition-[0.2s] text-[14px] assetr"  dbid="{{$asset->id}}">
-                            <div class="w-5 h-5 bg-[#{{substr(hash('ripemd160', $asset->id),0,6)}}] rounded-full min-w-[20px] min-h-5"></div>
+                            @if($asset->logo != null)
+                                <img class="w-5 h-5 min-w-5 min-h-5 rounded-full" src="{{ $asset->logo }}">
+                            @else
+                                <div class="w-5 h-5 bg-[#{{substr(hash('ripemd160', $asset->id),0,6)}}] rounded-full min-w-[20px] min-h-5"></div>
+                            @endif
                             <div class="truncate ">{{$asset->name}}({{$asset->symbol}})</div>
                         </div>
                     </div>

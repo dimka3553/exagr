@@ -7,6 +7,12 @@ use Illuminate\Database\Eloquent\Model;
 
 class asset extends Model
 {
+    protected $fillable = [
+        'name',
+        'symbol',
+        'logo'
+    ];
+
     public function assetType()
     {
         return $this->belongsTo(assetType::class);

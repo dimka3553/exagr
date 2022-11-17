@@ -7,6 +7,12 @@ use Illuminate\Database\Eloquent\Model;
 
 class exchange extends Model
 {
+    protected $fillable = [
+        'name',
+        'logo',
+        'price',
+    ];
+
     public function assetPrices()
     {
         return $this->hasMany(assetPrice::class);

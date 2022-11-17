@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use \App\Http\Controllers\SearchController;
 use \App\Http\Controllers\WelcomeController;
 use \App\Http\Controllers\DashboardController;
+use \App\Http\Controllers\AdminUpdateController;
 
 /*
 |--------------------------------------------------------------------------
@@ -22,6 +23,25 @@ Route::get('/', WelcomeController::class)->name('welcome');
 Route::get('/search/{assetone_id}/{assetttwo_id}', SearchController::class)->name('search');
 
 Route::get('/dashboard', DashboardController::class)->middleware(['auth', 'verified'])->name('dashboard');
+
+
+# Update type
+Route::post('/update/type', [AdminUpdateController::class, 'update_type'])->middleware(['auth', 'verified']);
+
+# Update asset
+Route::post('/update/assetname', [AdminUpdateController::class, 'update_asset_name'])->middleware(['auth', 'verified']);
+Route::post('/update/assetsymbol', [AdminUpdateController::class, 'update_asset_symbol'])->middleware(['auth', 'verified']);
+Route::post('/update/assetlogo', [AdminUpdateController::class, 'update_asset_logo'])->middleware(['auth', 'verified']);
+
+# Update exchange
+Route::post('/update/exname', [AdminUpdateController::class, 'update_ex_name'])->middleware(['auth', 'verified']);
+Route::post('/update/exlogo', [AdminUpdateController::class, 'update_ex_logo'])->middleware(['auth', 'verified']);
+Route::post('/update/exprice', [AdminUpdateController::class, 'update_ex_price'])->middleware(['auth', 'verified']);
+
+# Create
+Route::post('/create/type', [AdminUpdateController::class, 'create_type'])->middleware(['auth', 'verified']);
+Route::post('/create/asset', [AdminUpdateController::class, 'create_asset'])->middleware(['auth', 'verified']);
+Route::post('/create/exchange', [AdminUpdateController::class, 'create_ex'])->middleware(['auth', 'verified']);
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
