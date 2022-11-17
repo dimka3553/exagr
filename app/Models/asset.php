@@ -10,7 +10,8 @@ class asset extends Model
     protected $fillable = [
         'name',
         'symbol',
-        'logo'
+        'logo',
+        'asset_type_id',
     ];
 
     public function assetType()

@@ -15,8 +15,8 @@ return new class extends Migration
     {
         Schema::create('asset_prices', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('asset_id');
-            $table->foreignId('exchange_id');
+            $table->foreignId('asset_id')->references('id')->on('assets')->onDelete('cascade');
+            $table->foreignId('exchange_id')->references('id')->on('exchanges')->onDelete('cascade');
             $table->decimal('price', 18, 10);
             $table->timestamps();
         });

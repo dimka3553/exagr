@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('name');
             $table->string('symbol');
             $table->string('logo')->nullable();
-            $table->foreignId('asset_type_id');
+            $table->foreignId('asset_type_id')->nullable();
             $table->timestamps();
         });
     }

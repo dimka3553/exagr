@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use \App\Models\assetType;
 use \App\Models\asset;
 use \App\Models\exchange;
+use \App\Models\assetPrice;
 
 class AdminUpdateController extends Controller
 {
@@ -29,6 +30,10 @@ class AdminUpdateController extends Controller
         asset::find($req->id)->update(['logo' => $req->logo]);
         return back();
     }
+    public function update_asset_type_id(Request $req) {
+        asset::find($req->id)->update(['asset_type_id' => $req->asset_type_id]);
+        return back();
+    }
 
 
     public function update_ex_name(Request $req) {
@@ -47,6 +52,27 @@ class AdminUpdateController extends Controller
     }
 
 
+    public function delete_type($id) {
+        assetType::find($id)->delete();
+        return back();
+    }
+
+    public function delete_asset($id) {
+        asset::find($id)->delete();
+        return back();
+    }
+
+    public function delete_ex($id) {
+        exchange::find($id)->delete();
+        return back();
+    }
+
+    public function delete_assetprice($id) {
+        assetPrice::find($id)->delete();
+        return back();
+    }
+
+
     public function create_type(Request $req) {
         $type = new assetType;
         $type->name = $req->name;
@@ -60,6 +86,7 @@ class AdminUpdateController extends Controller
         $asset->name = $req->name;
         $asset->symbol = $req->symbol;
         $asset->logo = $req->logo;
+        $asset->asset_type_id = $req->asset_type_id;
 
         $asset->save();
 
@@ -67,13 +94,22 @@ class AdminUpdateController extends Controller
     }
 
     public function create_ex(Request $req) {
-        $ex = new asset;
+        $ex = new exchange;
         $ex->name = $req->name;
-        $ex->symbol = $req->symbol;
         $ex->logo = $req->logo;
-        $ex->price = $req->price;
+        $ex->url = $req->url;
 
         $ex->save();
+
+        return back();
+    }
+
+    public function create_linkex2as(Request $req) {
+        $link = new assetPrice;
+        $link->exchange_id = $req->exchange_id;
+        $link->asset_id = $req->asset_id;
+        $link->price = $req->price;
+        $link->save();
 
         return back();
     }

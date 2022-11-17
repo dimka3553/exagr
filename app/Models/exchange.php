@@ -10,7 +10,7 @@ class exchange extends Model
     protected $fillable = [
         'name',
         'logo',
-        'price',
+        'url',
     ];
 
     public function assetPrices()

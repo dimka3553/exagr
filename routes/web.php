@@ -32,6 +32,7 @@ Route::post('/update/type', [AdminUpdateController::class, 'update_type'])->midd
 Route::post('/update/assetname', [AdminUpdateController::class, 'update_asset_name'])->middleware(['auth', 'verified']);
 Route::post('/update/assetsymbol', [AdminUpdateController::class, 'update_asset_symbol'])->middleware(['auth', 'verified']);
 Route::post('/update/assetlogo', [AdminUpdateController::class, 'update_asset_logo'])->middleware(['auth', 'verified']);
+Route::post('/update/assettypeid', [AdminUpdateController::class, 'update_asset_type_id'])->middleware(['auth', 'verified']);
 
 # Update exchange
 Route::post('/update/exname', [AdminUpdateController::class, 'update_ex_name'])->middleware(['auth', 'verified']);
@@ -41,7 +42,14 @@ Route::post('/update/exprice', [AdminUpdateController::class, 'update_ex_price']
 # Create
 Route::post('/create/type', [AdminUpdateController::class, 'create_type'])->middleware(['auth', 'verified']);
 Route::post('/create/asset', [AdminUpdateController::class, 'create_asset'])->middleware(['auth', 'verified']);
-Route::post('/create/exchange', [AdminUpdateController::class, 'create_ex'])->middleware(['auth', 'verified']);
+Route::post('/create/ex', [AdminUpdateController::class, 'create_ex'])->middleware(['auth', 'verified']);
+Route::post('/create/linkex2as', [AdminUpdateController::class, 'create_linkex2as'])->middleware(['auth', 'verified']);
+
+# Delete
+Route::delete('/delete/type/{id}', [AdminUpdateController::class, 'delete_type'])->middleware(['auth', 'verified']);
+Route::delete('/delete/asset/{id}', [AdminUpdateController::class, 'delete_asset'])->middleware(['auth', 'verified']);
+Route::delete('/delete/ex/{id}', [AdminUpdateController::class, 'delete_ex'])->middleware(['auth', 'verified']);
+Route::delete('/delete/assetprice/{id}', [AdminUpdateController::class, 'delete_assetprice'])->middleware(['auth', 'verified']);
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
