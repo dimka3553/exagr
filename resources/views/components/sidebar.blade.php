@@ -1,7 +1,7 @@
 @props(['assetTypes'])
 <div class="fixed top-0 left-0 h-full bg-slate-100 w-full max-w-[400px] overflow-auto">
     <div class="h-[60px] border-b-[1px] border-[#dddddd] sticky top-0 w-full bg-slate-100 z-[2] flex">
-        <div class="w-[50%] h-[60px] relative border-r-[1px]">
+        <div class="w-[50%] h-[60px] relative border-r-[1px] border-[#dddddd]">
             <svg width="18" height="18" viewBox="0 0 18 18" fill="none" class="absolute mt-[21px] ml-[16px]" xmlns="http://www.w3.org/2000/svg">
                 <g>
                     <path d="M12.3801 7.07C12.3801 4.346 10.1011 2.137 7.29111 2.137C4.48111 2.137 2.20311 4.346 2.20311 7.071C2.20311 9.796 4.48111 12.005 7.29111 12.005C10.1011 12.005 12.3791 9.795 12.3791 7.071L12.3801 7.07ZM14.0671 7.07C14.0671 10.7 11.0331 13.64 7.29111 13.64C3.54911 13.64 0.516113 10.7 0.516113 7.07C0.516113 3.443 3.54911 0.5 7.29011 0.5C11.0321 0.5 14.0661 3.442 14.0661 7.07H14.0671Z" fill="#999999"/>
