@@ -1,5 +1,5 @@
 @props(['assetTypes'])
-<div class="fixed top-0 left-0 h-full bg-slate-100 w-full max-w-[400px] overflow-auto">
+<div class="fixed top-0 left-0 h-full bg-slate-100 w-full max-w-[400px] overflow-auto sidebar transition-[0.2s]">
     <div class="h-[60px] border-b-[1px] border-[#dddddd] sticky top-0 w-full bg-slate-100 z-[2] flex">
         <div class="w-[50%] h-[60px] relative border-r-[1px] border-[#dddddd]">
             <svg width="18" height="18" viewBox="0 0 18 18" fill="none" class="absolute mt-[21px] ml-[16px]" xmlns="http://www.w3.org/2000/svg">
